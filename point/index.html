@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pointa</title>
+</head>
+<body>
+    <div class="box">
+        <h1>
+            WELLCOME <br>
+            TO MY <br>
+            WORLD..<span class="name">shon 139.680272</span>..
+        </h1>
+    </div>
+</body>
+<style>
+body{
+    user-select: none;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+    touch-action: none;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+body{
+    font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+}
+.box{
+    position: absolute;
+}
+.box h1{
+    font-size: 180px;
+    font-weight: 800;
+}
+.name{
+    font-size: 30px;
+    font-weight: 100;
+}
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+<script>
+    //ディスプレイ全画面表示
+const  winX = window.innerWidth
+const  winY = window.innerHeight
+
+
+
+//-----------------------------------
+
+
+// 背景色
+let bgc = 255;
+// 玉のRGBA
+let r = 255;
+let g = 255;
+let b = 255;
+let a = 60;
+
+// 玉のサイズ(Max)
+let pointSize = 200
+
+
+// ------------------------------------
+
+
+// 1st call
+function setup() {
+    createCanvas(winX, winY);
+    background(bgc);
+}
+//60/1 call
+function draw() {
+console.log(r,g);
+    
+    fill(r,g,random(b),a);
+    
+    noStroke();
+    ellipse(random(width),random(height),random(pointSize));
+
+    if(mouseIsPressed) {
+        let x = mouseX / 5;
+        let y = mouseY / 5;
+        r = x;
+        g = y;
+    }
+}
+
+</script>
+</html>
